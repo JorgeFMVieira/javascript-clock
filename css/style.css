@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'agencyfb_regular_wideregular';
+    src: url('../fonts/agencyfb_regular_wide-webfont.woff2') format('woff2'),
+         url('../fonts/agencyfb_regular_wide-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'agencyfb_regular_wideregular';
+    src: url('../fonts/agencyfb_regular_wide-webfont.woff2') format('woff2'),
+         url('../fonts/agencyfb_regular_wide-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0;;
+    padding: 0;
+}
+
+body{
+    background-color: #191919;
+}
+
+.container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#weekDay{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.4vh;
+    color: #8a8a8a;
+}
+
+#weekDay p{
+    display: inline-block;
+}
+
+#timeClock{
+    text-align: center;
+    color: #00ff97;
+    font-size: 15vh;
+    font-family: 'agencyfb_regular_wideregular';
+}
+
+.today { 
+    color: #00ff97;
+}
+
+#chooseHour{
+    text-align: center;
+    font-size: 2.4vh;
+    justify-content: space-around;
+    color: #8a8a8a;
+}
+
+#chooseHour p{
+    display: inline-block;
+    text-align: center;
+    margin: 0vh 5vh;
+}
+
+#chooseHour p:hover{
+    color: #00ff97;
+    cursor: pointer;
+}
+
+.horaAtiva{
+    color: #00ff97;
+}
+
+@media screen and (max-width: 1440px) {
+    #weekDay{
+        font-size: 2vh;
+    }
+    #chooseHour{
+        font-size: 2vh;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    #weekDay p{
+        font-size: 1.7vh;
+    }
+    #chooseHour{
+        font-size: 1.7vh;
+    }
+}
+
+@media screen and (max-width: 1248px) {
+    #weekDay p{
+        font-size: 1.5vh;
+    }
+    #chooseHour{
+        font-size: 1.5vh;
+    }
+}
+
+@media screen and (max-width: 1132px) {
+    #weekDay p{
+        display: none;
+    }
+
+    #weekDay p.today{
+        display: block;
+        font-size: 1em;
+    }
+
+    #timeClock{
+        font-size: 3.1em;
+    }
+
+    #chooseHour{
+        font-size: 1em;
+    }
+}

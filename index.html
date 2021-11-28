@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0", user-scalable="no" />
+    <title>Clock</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body onload="weekday();time24();">
+
+    <div class="container">
+            <div id="weekDay">
+                    <p id="day-0">SUNDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-1">MONDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-2">TUESDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-3">WEDNESDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-4">THRUSDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-5">FRIDAY</p>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p id="day-6">SATURDAY</p>
+            </div>
+    
+            <div id="timeClock">
+            </div>
+    
+            <div id="chooseHour">
+                    <p id="h12" onclick="time12()">12 Hour</p>
+                    <p id="h24" onclick="time24()">24 Hour</p>
+            </div>
+    </div>
+    
+    <script>
+        function weekday() {
+        var d = new Date().getDay();
+        document.getElementById("day-"+d).classList.add('today');    
+        }
+
+        var t;
+        var c;
+
+        function time12(){
+            c = setInterval(() => {
+                var date = new Date();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                var session = "AM";
+            
+                if(h == 0){
+                    h = 12;
+                }
+                
+                if(h > 12){
+                    h = h - 12;
+                    session = "PM";
+                }
+                
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+                
+                var time = h + ":" + m + ":" + s + " " + session;
+                document.getElementById("timeClock").innerText = time;
+                document.getElementById("timeClock").textContent = time;
+            }, 0);
+            clearInterval(t);
+            document.getElementById("h12").classList.add('horaAtiva');
+            document.getElementById("h24").classList.add('horaAtiva');
+            document.getElementById("h24").classList.remove('horaAtiva');
+        }
+
+        function time24(){
+            t = setInterval(() => {
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById("timeClock").innerHTML = h + ":" + m + ":" + s;
+            }, 0);
+            clearInterval(c);
+            document.getElementById("h24").classList.add('horaAtiva');
+            document.getElementById("h12").classList.add('horaAtiva');
+            document.getElementById("h12").classList.remove('horaAtiva');
+
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+            i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+    </body>
+</html>
